@@ -93,7 +93,9 @@
 					</div>
 
 					<!-- createToDo() WILL CREATE NEW TODOS -->
-					<button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">Add</button>
+					<button type="submit" class="btn btn-primary btn-lg" ng-controller="mainController" ng-click="createTodo()">Add</button>
+
+					<button type="submit" class="btn btn-primary btn-lg" ng-controller="mainController_user" ng-click="createTodo()">User</button>
 				</form>
 			</div>
 		</div>
