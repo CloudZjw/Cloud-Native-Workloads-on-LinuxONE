@@ -22,13 +22,15 @@
 	<!-- SPELLS -->
 	<script src="//cdn.bootcss.com/angular.js/1.2.16/angular.min.js"></script><!-- load angular -->
 
-	<script src="js/controllers/main.js"></script> <!-- load up our controller -->
-	<script src="js/services/todos.js"></script> <!-- load our todo service -->
+	<script src="js/controllers/main.js"></script>
+	<script src="js/controllers/main_user.js"></script> <!-- load up our controller -->
+	<script src="js/services/todos.js"></script>
+	<script src="js/services/users.js"></script> <!-- load our todo service -->
 	<script src="js/core.js"></script> <!-- load our main application -->
 
 </head>
 <!-- SET THE CONTROLLER -->
-<body ng-controller="mainController">
+<body>
 	<div class="container">
 
 		<!-- HEADER AND TODO COUNT -->
@@ -37,13 +39,31 @@
 		</div>
 
 		<!-- TODO LIST -->
-		<div id="todo-list" class="row">
+		<div id="todo-list" class="row" ng-controller="mainController">
 			<div class="col-sm-4 col-sm-offset-4">
 
 				<!-- LOOP OVER THE TODOS IN $scope.todos -->
 				<div class="checkbox" ng-repeat="todo in todos">
 					<label>
 						<input type="checkbox" ng-click="deleteTodo(todo._id)"> {{ todo.text }}
+					</label>
+				</div>
+
+				<p class="text-center" ng-show="loading">
+					<span class="fa fa-spinner fa-spin fa-3x"></span>
+				</p>
+
+			</div>
+		</div>
+
+
+		<div id="user-list" class="row" ng-controller="mainController_user">
+			<div class="col-sm-4 col-sm-offset-4">
+
+				<!-- LOOP OVER THE TODOS IN $scope.todos -->
+				<div class="checkbox" ng-repeat="todo in todos">
+					<label>
+						<input type="checkbox" ng-click="deleteUser(user._id)"> {{ user.user_id }}
 					</label>
 				</div>
 
@@ -61,11 +81,13 @@
 					<div class="form-group">
 
 						<!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
-						<input type="text" class="form-control input-lg text-center" placeholder="todo's go here" ng-model="formData.text">
+						<input type="text" class="form-control input-lg text-center" placeholder="todo's go here" 
+						ng-controller="mainController" ng-model="formData.text">
 
+						<input type="text" class="form-control input-lg text-center" placeholder="user's go here" 
+						ng-controller="mainController_user" ng-model="formData.user_id">
 
-
-						<input type="text" class="form-control " placeholder="todo's go here" ng-model="formData.value">
+						<!--<input type="text" class="form-control " placeholder="todo's go here" ng-model="formData.value">-->
 
 
 					</div>
