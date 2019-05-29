@@ -23,9 +23,11 @@
 	<script src="//cdn.bootcss.com/angular.js/1.2.16/angular.min.js"></script><!-- load angular -->
 
 	<script src="js/controllers/main.js"></script>
-	<script src="js/controllers/main_user.js"></script> <!-- load up our controller -->
+	<script src="js/controllers/main_user.js"></script>
+	<script src="js/controllers/main_wish.js"></script> <!-- load up our controller -->
 	<script src="js/services/todos.js"></script>
-	<script src="js/services/users.js"></script> <!-- load our todo service -->
+	<script src="js/services/users.js"></script>
+	<script src="js/services/wishes.js"></script> <!-- load our todo service -->
 	<script src="js/core.js"></script> <!-- load our main application -->
 
 </head>
@@ -74,6 +76,23 @@
 			</div>
 		</div>
 
+		<div id="wish-list" class="row" ng-controller="mainController_wish">
+			<div class="col-sm-4 col-sm-offset-4">
+
+				<!-- LOOP OVER THE TODOS IN $scope.todos -->
+				<div class="checkbox" ng-repeat="todo in todos">
+					<label>
+						<input type="checkbox" ng-click="deleteWish(user._id)"> {{ wish.wish_id }}
+					</label>
+				</div>
+
+				<p class="text-center" ng-show="loading">
+					<span class="fa fa-spinner fa-spin fa-3x"></span>
+				</p>
+
+			</div>
+		</div>
+
 		<!-- FORM TO CREATE TODOS -->
 		<div id="todo-form" class="row">
 			<div class="col-sm-8 col-sm-offset-2 text-center">
@@ -85,17 +104,27 @@
 						 ng-model="formData.text">
 
 						<!--<input type="text" class="form-control " placeholder="todo's go here" ng-model="formData.value">-->
-						<button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">Add</button>
+						<button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">Todo</button>
 					</div>
 					
 					<div class="form-group" ng-controller="mainController_user">
 
 						<!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
 						<input type="text" class="form-control input-lg text-center" placeholder="user's go here" 
-						ng-controller="mainController_user" ng-model="formData.user_id">
+						 ng-model="formData.user_id">
 
 						<!--<input type="text" class="form-control " placeholder="todo's go here" ng-model="formData.value">-->
 						<button type="submit" class="btn btn-primary btn-lg" ng-click="createUser()">User</button>
+					</div>
+
+					<div class="form-group" ng-controller="mainController_wish">
+
+						<!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
+						<input type="text" class="form-control input-lg text-center" placeholder="wish's go here" 
+						 ng-model="formData.wish_id">
+
+						<!--<input type="text" class="form-control " placeholder="todo's go here" ng-model="formData.value">-->
+						<button type="submit" class="btn btn-primary btn-lg" ng-click="createWish()">Wish</button>
 					</div>
 					<!-- createToDo() WILL CREATE NEW TODOS -->
 					
