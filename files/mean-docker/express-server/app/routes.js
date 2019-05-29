@@ -16,8 +16,10 @@ function getTodos(res) {
 
 function getUsers(res) {
     User.find(function(err, users) {
+
         if(err)
             res.send(err);
+            
         res.json(users);
     });
 };
@@ -75,7 +77,7 @@ module.exports = function (app) {
             user_id: req.body.user_id,
             code: req.body.code,
             contact_method: req.body.contact_method,
-            rank: req.body.rank;
+            rank: req.body.rank,
             done: false
         }, function (err, user) {
             if (err)
@@ -87,7 +89,7 @@ module.exports = function (app) {
 
     });
 
-    app.post('/api/todos', function (req, res) {
+    app.post('/api/wishes', function (req, res) {
 
         // create a todo, information comes from AJAX request from Angular
         Wish.create({
@@ -97,7 +99,7 @@ module.exports = function (app) {
             ddl: req.body.ddl,
             bonus: req.body.bonus,
             done: false
-        }, function (err, todo) {
+        }, function (err, wish) {
             if (err)
                 res.send(err);
 
@@ -120,9 +122,9 @@ module.exports = function (app) {
     });
 
     app.delete('/api/users/:user_id', function (req, res) {
-        Todo.remove({
+        User.remove({
             _id: req.params.user_id
-        }, function (err, todo) {
+        }, function (err, user) {
             if (err)
                 res.send(err);
 
@@ -131,9 +133,9 @@ module.exports = function (app) {
     });
 
     app.delete('/api/wishes/:wish_id', function (req, res) {
-        Todo.remove({
+        Wish.remove({
             _id: req.params.wish_id
-        }, function (err, todo) {
+        }, function (err, wish) {
             if (err)
                 res.send(err);
 
