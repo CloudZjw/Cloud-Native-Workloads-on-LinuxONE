@@ -1,1 +1,1 @@
-angular.module('meanTodo', ['todoController', 'todoService']);
+angular.module('meanTodo', ['Controller', 'todoService']);
