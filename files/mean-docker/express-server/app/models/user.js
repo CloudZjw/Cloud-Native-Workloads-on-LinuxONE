@@ -2,24 +2,24 @@ var mongoose = require('mongoose');
 
 // Define the schema
 module.exports = mongoose.model('User', {
-    user_id: {
-        type: Number,
+    user_name: {
+        type: String,
         default: ''
     },
 
     code: {
-    	type: String,
-    	default: ''
+        type: String,
+        default: ''
     },
 
-    contact_method: {
+    email: {
         type: String,
         default: ''
     },
 
     rank: {
-    	type: Number,
-    	default: ''
+        type: Number,
+        default: 0
     }
 
 });

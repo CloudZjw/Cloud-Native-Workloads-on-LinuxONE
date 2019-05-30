@@ -2,8 +2,12 @@ var mongoose = require('mongoose');
 
 // Define the schema
 module.exports = mongoose.model('Wish', {
-    wish_id: {
-        type: Number,
+    user_name: {
+        type: String,
+        default: ''
+    },
+    title: {
+        type: String,
         default: ''
     },
 
@@ -12,20 +16,8 @@ module.exports = mongoose.model('Wish', {
         default: ''
     },
 
-    publish_date: {
-    	type: Date,
-    	default: Date.now()
-    },
-
-    ddl: {
-    	type: Date,
-    	default: ''
-    },
-
     bonus: {
-    	type: Number,
-    	default: ''
+        type: Number,
+        default: ''
     }
-
-
 });
