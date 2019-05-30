@@ -1,4 +1,4 @@
-var mainController = angular.module('Controller', [])
+var mainController = angular.module('Controller', []);
 
 
 	mainController.controller('Register', ['$scope', '$http', 'Users', function ($scope, $http, Users) {
@@ -35,9 +35,9 @@ var mainController = angular.module('Controller', [])
 						$scope.fromUserData = {}; // clear the form so our user is ready to enter another
 
 					});
+				}	
 			}
-
-		}
+		}]);
 
 		isDigitOrLetter = function (s) {
 			var re = /^[0-9a-zA-Z]*$/g;
@@ -108,13 +108,12 @@ var mainController = angular.module('Controller', [])
 			$scope.createUser();
 		};
 
-	}])
-
 
 	mainController.controller('wishController', ['$scope', '$http', 'Wishes', function ($scope, $http, Wishes) {
 		$scope.wishData = {};
 		$scope.wishing = false;
-		$scope.bonusList = [1,2,3]
+		$scope.bonusList = [1,2,3];
+		console.log($scope.wishData);
 
 		// GET =====================================================================
 		// when landing on the page, get all todos and show them
@@ -149,4 +148,5 @@ var mainController = angular.module('Controller', [])
 					});
 			}
 
-		};
+		}
+	}]);

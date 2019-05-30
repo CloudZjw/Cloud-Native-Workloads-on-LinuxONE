@@ -9,8 +9,8 @@
   <script src="http://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
   <script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-  <script src="//cdn.bootcss.com/angular.js/1.2.16/angular.min.js"></script>
-   <!-- <script src="js/angular.min.js"></script> -->
+  <!--<script src="//cdn.bootcss.com/angular.js/1.2.16/angular.min.js"></script>-->
+  <script src="js/angular.min.js"></script>
   <script src="js/controllers/main.js"></script> <!-- load up our controller -->
   <script src="js/services/worryShop.js"></script> <!-- load our todo service -->
   <script src="js/core.js"></script> <!-- load our main application -->
@@ -38,7 +38,8 @@
             <form class="form-group" action="">
                 <div class="form-group">
                     <label for="">标题</label>
-                    <label> {{1+1}}</label>
+                    <h1>{{1+1}}</h1>
+                    <script type="text/javascript" ng-if="true">console.log("HAHAHHA");</script>
                     <input class="form-control" type="text" placeholder="起个清晰的标题吧:)" ng-model="wishData.title">
                 </div>
                 <div class="form-group" >
