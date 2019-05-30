@@ -133,9 +133,10 @@ var mainController = angular.module('Controller', [])
 			// validate the formData to make sure that something is there
 			// if form is empty, nothing will happen
 			console.log($scope.wishData);
-			if ($scope.wishData.title && $scope.wishData.user_name != undefined) {
+			if ($scope.wishData.title != undefined) {
 				console.log("make a vow");
 				$scope.wishing = true;
+				$scope.wishData.bonus = $scope.selectedBonus;
 
 				// call the create function from our service (returns a promise object)
 				Wishes.create($scope.wishData)
