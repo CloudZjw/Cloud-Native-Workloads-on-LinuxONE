@@ -138,7 +138,7 @@ var mainController = angular.module('Controller', [])
 				$scope.wishing = true;
 
 				// call the create function from our service (returns a promise object)
-				Users.create($scope.wishData)
+				Wishes.create($scope.wishData)
 					// if successful creation, call our get function to get all the new todos
 					.success(function (data) {
 						console.log("TERMINATE");

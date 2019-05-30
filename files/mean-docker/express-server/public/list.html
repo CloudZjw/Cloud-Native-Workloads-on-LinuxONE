@@ -39,11 +39,11 @@
                 </div>
                 <div class="form-group">
                     <label for="">奖励</label>
-                    <select multiple class="form-control" ng-init="selectBonus = bonusList[0]" ng-model="selectBonus" ng-options="x for x in bonusList">
+                    <select class="form-control" ng-init="selectedBonus = bonusList[0]" ng-model="selectedBonus" ng-options="x for x in bonusList">
                     </select>
                 </div>
                 <div class="text-right">
-                    <button class="btn btn-primary" type="submit">许愿</button>
+                    <button class="btn btn-primary" type="submit" ng-click="createWish()">许愿</button>
                     <button class="btn" data-dismiss="modal">取消</button>
                 </div>
 
