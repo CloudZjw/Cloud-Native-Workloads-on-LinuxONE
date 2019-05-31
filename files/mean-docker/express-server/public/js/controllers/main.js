@@ -223,6 +223,7 @@ ctrl.controller('Login', ['$scope', '$http', '$rootScope', 'Users', function ($s
 	$scope.login = function () {
 		console.log($scope.user_name);
 		console.log($scope.code);
+		window.location.href = './index.html';
 		$scope.loginSuccess = true;
 	}
 
@@ -255,7 +256,7 @@ ctrl.controller('wishController', ['$scope', '$http', '$rootScope', 'Wishes', fu
 				console.log("make a vow");
 				$scope.wishing = true;
 				$scope.wishData.bonus = $scope.selectedBonus;
-				$scope.wishData.user_name = $rootScope.user_name;
+				$scope.wishData.user_name = $rootScope.userName;
 
 				// call the create function from our service (returns a promise object)
 				Wishes.create($scope.wishData)
