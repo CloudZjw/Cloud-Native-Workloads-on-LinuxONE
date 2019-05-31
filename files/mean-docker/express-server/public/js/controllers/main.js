@@ -222,10 +222,14 @@ ctrl.controller('Login', ['$scope', '$http', '$rootScope', 'Users', function ($s
 	$scope.login = function () {
 		console.log($rootScope.userName);
 		console.log($scope.code);
-		window.location.href = './receive.html?#userName=' + $rootScope.userName;
+		window.location.href = './receive.html?userName=' + $rootScope.userName;
 		$scope.loginSuccess = true;
 	}
 
+}]);
+
+ctrl.config(['$locationProvider', function($locationProvider) {  
+  $locationProvider.html5Mode(true);  
 }]);
 
 ctrl.controller('wishController', ['$scope', '$http', '$location', '$rootScope', 'Wishes', function ($scope, $location, $rootScope, $http, Wishes) {
