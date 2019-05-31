@@ -224,6 +224,7 @@ ctrl.controller('Login', ['$scope', '$http', '$rootScope', 'Users', function ($s
 
 	$scope.login = function () {
 		console.log($rootScope.userName);
+		localStorage.setItem("username", $rootScope.userName);
 		console.log($scope.code);
 		window.location.href = './receive.html?userName=' + $rootScope.userName;
 		$scope.loginSuccess = true;
@@ -238,13 +239,14 @@ ctrl.controller('wishController', ['$scope', '$http', '$location', '$rootScope',
 	console.log($scope.wishData);
 	console.log($location);
 
-	$rootScope.userName = "";
+	$scope.wishData.user_name=localStorage.getItem("username");
+	/**$rootScope.userName = "";
 	if ($location.search().userName) {
 		$rootScope.userName = $location.search().userName;
 		console.log($rootScope.userName);
 	} else {
 		console.log("ERROR OCCUR.");
-	}
+	}**/
 
 	// GET =====================================================================
 	// when landing on the page, get all todos and show them
@@ -269,7 +271,7 @@ ctrl.controller('wishController', ['$scope', '$http', '$location', '$rootScope',
 			console.log("make a vow");
 			$scope.wishing = true;
 			$scope.wishData.bonus = $scope.selectedBonus;
-			$scope.wishData.user_name = $rootScope.userName;
+			//$scope.wishData.user_name = $rootScope.userName;
 
 			// call the create function from our service (returns a promise object)
 			Wishes.create($scope.wishData).success(function (data) {
