@@ -233,6 +233,7 @@ ctrl.controller('wishController', ['$scope', '$http', '$location', '$rootScope',
 	$scope.wishing = false;
 	$scope.bonusList = [1, 2, 3, 4, 5, 6];
 	console.log($scope.wishData);
+	console.log($location);
 
 	$rootScope.userName = "";
 	if ($location.search().userName) {
