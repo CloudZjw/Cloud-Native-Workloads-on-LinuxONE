@@ -164,7 +164,6 @@ ctrl.controller('Login', ['$scope', '$http', '$rootScope', 'Users', function ($s
 	$scope.logining = true;
 	$scope.loginSuccess = false;
 	$rootScope.userName = null;
-	$rootScope.user_name = null;
 
 
 	$scope.userNameFormatValid = function () {
@@ -224,7 +223,6 @@ ctrl.controller('Login', ['$scope', '$http', '$rootScope', 'Users', function ($s
 	$scope.login = function () {
 		console.log($scope.user_name);
 		console.log($scope.code);
-		$rootScope.user_name=$scope.user_name;
 		$scope.loginSuccess = true;
 	}
 
