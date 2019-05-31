@@ -6,12 +6,10 @@ module.exports = mongoose.model('Wish', {
         type: String,
         default: ''
     },
-
     receiver: {
         type: String,
         default: ''
     },
-
     title: {
         type: String,
         default: ''
@@ -25,5 +23,9 @@ module.exports = mongoose.model('Wish', {
     bonus: {
         type: Number,
         default: ''
+    },
+    isFinished: {
+        type: Boolean,
+        default: false
     }
 });

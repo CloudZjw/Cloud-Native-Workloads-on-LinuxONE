@@ -1,28 +1,28 @@
 var shop = angular.module('worryShopServer', [])
 
-shop.factory('Users', ['$http',function($http) {
+shop.factory('Users', ['$http', function ($http) {
 	return {
-		get : function() {
+		get: function () {
 			return $http.get('/api/users');
 		},
-		create : function(userData) {
+		create: function (userData) {
 			return $http.post('/api/users', userData);
 		},
-		delete : function(id) {
+		delete: function (id) {
 			return $http.delete('/api/users/' + id);
 		}
 	}
 }]);
 
-shop.factory('Wishes', ['$http',function($http) {
+shop.factory('Wishes', ['$http', function ($http) {
 	return {
-		get : function() {
+		get: function () {
 			return $http.get('/api/wishes');
 		},
-		create : function(wishData) {
+		create: function (wishData) {
 			return $http.post('/api/wishes', wishData);
 		},
-		delete : function(id) {
+		delete: function (id) {
 			return $http.delete('/api/wishes/' + id);
 		}
 	}

@@ -222,52 +222,62 @@ ctrl.controller('Login', ['$scope', '$http', '$rootScope', 'Users', function ($s
 	$scope.login = function () {
 		console.log($rootScope.userName);
 		console.log($scope.code);
-		window.location.href = './index.html';
+		window.location.href = './receive.html?userName=' + $rootScope.userName;
 		$scope.loginSuccess = true;
 	}
 
 }]);
 
-ctrl.controller('wishController', ['$scope', '$http', '$rootScope', 'Wishes', function ($scope, $rootScope, $http, Wishes) {
+ctrl.controller('wishController', ['$scope', '$http', '$location', '$rootScope', 'Wishes', function ($scope, $location, $rootScope, $http, Wishes) {
 	$scope.wishData = {};
 	$scope.wishing = false;
 	$scope.bonusList = [1, 2, 3, 4, 5, 6];
 	console.log($scope.wishData);
 
-		// GET =====================================================================
-		// when landing on the page, get all todos and show them
-		// use the service to get all the todos
-		Wishes.get()
+	$rootScope.userName = "";
+	if ($location.search().userName) {
+		$rootScope.userName = $location.search().userName;
+		console.log($rootScope.userName);
+	} else {
+		console.log("ERROR OCCUR.");
+	}
+
+	// GET =====================================================================
+	// when landing on the page, get all todos and show them
+	// use the service to get all the todos
+	Wishes.get()
 		.success(function (data) {
+			console.log("First get");
 			console.log(data);
+			console.log("First get done.");
 			$scope.wishes = data;
 			$scope.wishing = false;
 		});
 
-		// CREATE ==================================================================
-		// when submitting the add form, send the text to the node API
-		$scope.createWish = function () {
+	// CREATE ==================================================================
+	// when submitting the add form, send the text to the node API
+	$scope.createWish = function () {
 
-			// validate the formData to make sure that something is there
-			// if form is empty, nothing will happen
-			console.log($scope.wishData);
-			if ($scope.wishData.title != undefined) {
-				console.log("make a vow");
-				$scope.wishing = true;
-				$scope.wishData.bonus = $scope.selectedBonus;
-				console.log("here's user_name.")
-				$scope.wishData.user_name = $rootScope.userName;
+		// validate the formData to make sure that something is there
+		// if form is empty, nothing will happen
+		console.log($scope.wishData);
+		if ($scope.wishData.title != undefined) {
+			console.log("make a vow");
+			$scope.wishing = true;
+			$scope.wishData.bonus = $scope.selectedBonus;
+			$scope.wishData.user_name = $rootScope.userName;
 
-				// call the create function from our service (returns a promise object)
-				Wishes.create($scope.wishData)
-					// if successful creation, call our get function to get all the new todos
-					.success(function (data) {
-						console.log("TERMINATE");
-						$scope.wishing = false;
-						$scope.wishData = {}; // clear the form so our user is ready to enter another
+			// call the create function from our service (returns a promise object)
+			Wishes.create($scope.wishData).success(function (data) {
+				console.log("Call back begin");
+				$scope.wishes = data;
+				console.log(data);
+				console.log("Call back done.");
+				$scope.wishing = false;
+				$scope.wishData = {}; // clear the form so our user is ready to enter another
+				window.location.href = "./list.html";
+			});
+		}
 
-					});
-				}
-
-			}
-		}]);
+	}
+}]);

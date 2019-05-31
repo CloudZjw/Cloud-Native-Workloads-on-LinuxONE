@@ -15,8 +15,6 @@
 
   <!-- SPELLS -->
   <script src="//cdn.bootcss.com/angular.js/1.2.16/angular.min.js"></script>
-  <!-- load angular -->
-  <!-- <script src="js/angular.min.js"></script> -->
   <!--- load angular -->
   <script src="js/controllers/main.js"></script> <!-- load up our controller -->
   <script src="js/services/worryShop.js"></script> <!-- load our todo service -->
@@ -26,16 +24,14 @@
 
 <body class="jumbotron" style="background-image: url(./background.png);" ng-app="worryShop">
   <h2 class="text-center text-primary">解忧杂货店</h2>
-  <ul class="nav navbar-nav navbar-right">
-    <li><a data-toggle="modal" data-target="#register" href=""><span class="glyphicon glyphicon-user"></span> 注册</a>
-    </li>
-    <li><a data-toggle="modal" data-target="#login" href=""><span class="glyphicon glyphicon-log-in"></span> 登录</a></li>
-  </ul>
 
-  <ul class="nav nav-tabs">
-    <li role="presentation" class="active"><a href="#">收信</a></li>
-    <li role="presentation"><a href="list.html">信箱</a></li>
-  </ul>
+
+  <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#register"
+    href=""><span class="glyphicon glyphicon-user"></span>注册</button>
+  <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#login" href=""><span
+      class="glyphicon glyphicon-log-in"></span>登录</button>
+
+
   <!-- 注册窗口 -->
   <div id="register" class="modal fade" tabindex="-1" ng-controller="Register">
     <div class="modal-dialog">
@@ -87,7 +83,8 @@
               <span class="fa fa-spinner fa-spin fa-3x"></span>
             </p>
             <a href="" data-toggle="modal" data-dismiss="modal" ng-if="!regSuccess" data-target="#login">已有账号？点我登录</a>
-            <a href="" data-toggle="modal" data-dismiss="modal" ng-if="regSuccess" data-target="#login">注册成功！ 点我登录</a>
+            <a href="" data-toggle="modal" data-dismiss="modal" ng-if="regSuccess" data-target="#login">注册成功！
+              点我登录</a>
           </form>
         </div>
       </div>
@@ -129,58 +126,7 @@
       </div>
     </div>
   </div>
-  <!-- 阅读窗口 -->
-  <div id="read" class="modal fade">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-body">
-          <button class="close" data-dismiss="modal">
-            <span>&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          fdsafdsa
-        </div>
-        <div class="text-right">
-          <button class="btn btn-primary" type="submit">接受</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-6 col-md-2">
-      <a class="thumbnail" data-toggle="modal" data-target="#read" href="">
-        <img src="./file.jpg" alt="...">
-      </a>
-    </div>
-    <div class="col-xs-6 col-md-2">
-      <a href="" class="thumbnail" data-toggle="modal" data-target="#read">
-        <img src="./file.jpg" alt="...">
-      </a>
-    </div>
-    <div class="col-xs-6 col-md-2">
-      <a href="" data-toggle="modal" data-target="#read" class="thumbnail">
-        <img src="./file.jpg" alt="...">
-      </a>
-    </div>
-    <div class="col-xs-6 col-md-2">
-      <a href="" data-toggle="modal" data-target="#read" class="thumbnail">
-        <img src="./file.jpg" alt="...">
-      </a>
-    </div>
-    <div class="col-xs-6 col-md-2">
-      <a href="" data-toggle="modal" data-target="#read" class="thumbnail">
-        <img src="./file.jpg" alt="...">
-      </a>
-    </div>
-    <div class="col-xs-6 col-md-2">
-      <a href="" data-toggle="modal" data-target="#read" class="thumbnail">
-        <img src="./file.jpg" alt="...">
-      </a>
-    </div>
-  </div>
-  <button type="button" class="btn btn-primary btn-lg btn-block"><span
-      class="glyphicon glyphicon-usd"></span>取信</button>
+
 </body>
 
 </html>

@@ -52,7 +52,6 @@ module.exports = function (app) {
         // create a todo, information comes from AJAX request from Angular
         Wish.create({
             user_name: req.body.user_name,
-            receiver: req.body.receiver,
             title: req.body.title,
             description: req.body.description,
             bonus: req.body.bonus,
@@ -60,9 +59,12 @@ module.exports = function (app) {
         }, function (err, wish) {
             if (err)
                 res.send(err);
+
+            getWishes(res);
         });
 
     });
+
 
     // delete a todo
     app.delete('/api/todos/:todo_id', function (req, res) {
