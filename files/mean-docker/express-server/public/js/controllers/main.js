@@ -164,6 +164,7 @@ ctrl.controller('Login', ['$scope', '$http', '$rootScope', 'Users', function ($s
 	$scope.logining = true;
 	$scope.loginSuccess = false;
 	$rootScope.userName = null;
+	$rootScope.user_name = null;
 
 
 	$scope.userNameFormatValid = function () {
@@ -223,6 +224,7 @@ ctrl.controller('Login', ['$scope', '$http', '$rootScope', 'Users', function ($s
 	$scope.login = function () {
 		console.log($scope.user_name);
 		console.log($scope.code);
+		$rootScope.user_name=$scope.user_name;
 		$scope.loginSuccess = true;
 	}
 
@@ -255,7 +257,7 @@ ctrl.controller('wishController', ['$scope', '$http', '$rootScope', 'Wishes', fu
 				console.log("make a vow");
 				$scope.wishing = true;
 				$scope.wishData.bonus = $scope.selectedBonus;
-				$scope.wishData.user_name = $rootScope.usedName;
+				$scope.wishData.user_name = $rootScope.user_name;
 
 				// call the create function from our service (returns a promise object)
 				Wishes.create($scope.wishData)
