@@ -256,6 +256,7 @@ ctrl.controller('wishController', ['$scope', '$http', '$rootScope', 'Wishes', fu
 				console.log("make a vow");
 				$scope.wishing = true;
 				$scope.wishData.bonus = $scope.selectedBonus;
+				console.log("here's username.")
 				$scope.wishData.user_name = $rootScope.userName;
 
 				// call the create function from our service (returns a promise object)
