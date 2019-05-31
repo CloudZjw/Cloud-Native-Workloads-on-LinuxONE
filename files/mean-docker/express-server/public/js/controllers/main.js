@@ -238,8 +238,7 @@ ctrl.controller('wishController', ['$scope', '$http', '$location', '$rootScope',
 	$scope.bonusList = [1, 2, 3, 4, 5, 6];
 	console.log($scope.wishData);
 	console.log($location);
-
-	$scope.wishData.user_name=localStorage.getItem("username");
+	
 	/**$rootScope.userName = "";
 	if ($location.search().userName) {
 		$rootScope.userName = $location.search().userName;
@@ -271,6 +270,8 @@ ctrl.controller('wishController', ['$scope', '$http', '$location', '$rootScope',
 			console.log("make a vow");
 			$scope.wishing = true;
 			$scope.wishData.bonus = $scope.selectedBonus;
+			$scope.wishData.user_name=localStorage.getItem("username");
+			console.log($scope.wishData.user_name);
 			//$scope.wishData.user_name = $rootScope.userName;
 
 			// call the create function from our service (returns a promise object)
