@@ -228,7 +228,7 @@ ctrl.controller('Login', ['$scope', '$http', '$rootScope', 'Users', function ($s
 
 }]);
 
-ctrl.controller('wishController', ['$scope', '$http', 'Wishes', function ($scope, $http, Wishes) {
+ctrl.controller('wishController', ['$scope', '$http', '$rootScope', 'Wishes', function ($scope, $http, Wishes) {
 	$scope.wishData = {};
 	$scope.wishing = false;
 	$scope.bonusList = [1, 2, 3, 4, 5, 6];
