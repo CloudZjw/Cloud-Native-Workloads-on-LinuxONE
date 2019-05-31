@@ -14,12 +14,12 @@ ctrl.controller('Register', ['$scope', '$http', '$rootScope', 'Users', function 
 	// when landing on the page, get all todos and show them
 	// use the service to get all the todos
 	Users.get()
-	.success(function (data) {
-		console.log(data);
-		$rootScope.users = data;
-		$scope.registering = false;
-		departUsers();
-	});
+		.success(function (data) {
+			console.log(data);
+			$rootScope.users = data;
+			$scope.registering = false;
+			departUsers();
+		});
 
 	// CREATE ==================================================================
 	// when submitting the add form, send the text to the node API
@@ -161,13 +161,12 @@ ctrl.controller('Register', ['$scope', '$http', '$rootScope', 'Users', function 
 ctrl.controller('Login', ['$scope', '$http', '$rootScope', 'Users', function ($scope, $rootScope, $http, Users) {
 	$scope.user_name = null;
 	$scope.code = null;
-	$scope.logining = true;
 	$scope.loginSuccess = false;
 	$rootScope.userName = null;
 
 
 	$scope.userNameFormatValid = function () {
-		if ($scope.user_name == null || $scope.user_name == undefined)
+		if ($scope.user_name == null || $scope.user_name == undefined || $scope.user_name.length == 0)
 			return true;
 		else
 			return userNameValid();
@@ -189,7 +188,7 @@ ctrl.controller('Login', ['$scope', '$http', '$rootScope', 'Users', function ($s
 
 	$scope.codeFormatValid = function () {
 
-		if ($scope.code == null || $scope.code == undefined)
+		if ($scope.code == null || $scope.code == undefined || $scope.code.length == 0 || $scope.user_name.length == 0)
 			return true;
 		else
 			return $scope.codeValid();
@@ -221,7 +220,7 @@ ctrl.controller('Login', ['$scope', '$http', '$rootScope', 'Users', function ($s
 	};
 
 	$scope.login = function () {
-		console.log($scope.user_name);
+		console.log($rootScope.userName);
 		console.log($scope.code);
 		window.location.href = './index.html';
 		$scope.loginSuccess = true;

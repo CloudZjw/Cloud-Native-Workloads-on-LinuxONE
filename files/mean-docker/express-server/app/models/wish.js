@@ -6,6 +6,12 @@ module.exports = mongoose.model('Wish', {
         type: String,
         default: ''
     },
+
+    receiver: {
+        type: String,
+        default: ''
+    },
+
     title: {
         type: String,
         default: ''
