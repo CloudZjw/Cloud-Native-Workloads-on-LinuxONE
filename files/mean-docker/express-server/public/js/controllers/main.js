@@ -112,7 +112,7 @@ var mainController = angular.module('Controller', []);
 	mainController.controller('wishController', ['$scope', '$http', 'Wishes', function ($scope, $http, Wishes) {
 		$scope.wishData = {};
 		$scope.wishing = false;
-		$scope.bonusList = [1,2,3];
+		$scope.bonusList = [1, 2, 3];
 		console.log($scope.wishData);
 
 		// GET =====================================================================
@@ -136,6 +136,7 @@ var mainController = angular.module('Controller', []);
 				console.log("make a vow");
 				$scope.wishing = true;
 				$scope.wishData.bonus = $scope.selectedBonus;
+				//$scope.wishData.user_name = $rootscope.userName;
 
 				// call the create function from our service (returns a promise object)
 				Wishes.create($scope.wishData)
