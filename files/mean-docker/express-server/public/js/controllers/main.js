@@ -1,5 +1,8 @@
 var ctrl = angular.module('Controller', []);
 
+ctrl.config(['$locationProvider', function($locationProvider) {  
+  $locationProvider.html5Mode(true);  
+}]);
 
 ctrl.controller('Register', ['$scope', '$http', '$rootScope', 'Users', function ($scope, $rootScope, $http, Users) {
 	$scope.fromUserData = {};
@@ -226,10 +229,6 @@ ctrl.controller('Login', ['$scope', '$http', '$rootScope', 'Users', function ($s
 		$scope.loginSuccess = true;
 	}
 
-}]);
-
-ctrl.config(['$locationProvider', function($locationProvider) {  
-  $locationProvider.html5Mode(true);  
 }]);
 
 ctrl.controller('wishController', ['$scope', '$http', '$location', '$rootScope', 'Wishes', function ($scope, $location, $rootScope, $http, Wishes) {
